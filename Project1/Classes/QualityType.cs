@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    enum Quality
+    enum QualityType
     {
         Econom=1, Standart, Luxury
     }

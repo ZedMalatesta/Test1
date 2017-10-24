@@ -45,7 +45,7 @@
     <Compile Include="Interfaces\IPassengerItem.cs" />
     <Compile Include="Classes\Locomotive.cs" />
     <Compile Include="Classes\PassengerTrain.cs" />
-    <Compile Include="Classes\Quality.cs" />
+    <Compile Include="Classes\QualityType.cs" />
     <Compile Include="RailroadCar.cs" />
     <Compile Include="Classes\RailroadItem.cs" />
     <Compile Include="TankCar.cs" />

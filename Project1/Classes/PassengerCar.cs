@@ -7,8 +7,24 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    interface PassengerCar : IPassengerItem
+    class PassengerCar : IPassengerItem
     {
-        
+        public QualityType _quality { get; private set; }
+
+        public int AllSeatsNumber
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int OccupiedSeatsNumber
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace Project1.Interfaces
 {
     interface IFreightItem
     {
-        double Weight { get; }
+        double WeightFreight { get; }
     }
 }

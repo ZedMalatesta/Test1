@@ -14,7 +14,7 @@ namespace Project1.Classes
         {
         }
 
-        public int SeatsNumber 
+        public int AllSeatsNumber 
         {
             get
             {
@@ -22,7 +22,7 @@ namespace Project1.Classes
             }
         }
 
-        public int OccupiedSeats
+        public int OccupiedSeatsNumber
         {
             get
             {

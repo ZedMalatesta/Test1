@@ -8,7 +8,7 @@ namespace Project1.Interfaces
 {
     interface IPassengerItem
     {
-        int SeatsNumber { get; }
-        int OccupiedSeats { get; }
+        int AllSeatsNumber { get; }
+        int OccupiedSeatsNumber { get; }
     }
 }

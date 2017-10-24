@@ -14,7 +14,7 @@ namespace Project1
         {
         }
 
-        public double Weight
+        public double WeightFreight
         {
             get
             {
