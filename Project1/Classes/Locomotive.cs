@@ -4,16 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1
+namespace Project1.Classes
 {
-    class Locomotive : RailroadItem
+    public class Locomotive : RollingStockItem
     {
         public int _powerkW { get; private set; }
 
-        public Locomotive(int weightNative, int powerkW) 
-            : base(weightNative)
+        public Locomotive(int weightNative, string name, int powerkW) 
+            : base(weightNative, name)
         {
             _powerkW = powerkW;
+        }
+
+        public override double Weight()
+        {
+            return _weightNativet;
+        }
+
+        public override string Name()
+        {
+            return _name;
         }
     }
 }

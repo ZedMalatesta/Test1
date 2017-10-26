@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project1.Interfaces
 {
-    interface IFreightItem
+    public interface IFreightItem
     {
-        double WeightFreight { get; }
+        double FreightCapacity { get; }
+        double FreightWeight { get; }
     }
 }

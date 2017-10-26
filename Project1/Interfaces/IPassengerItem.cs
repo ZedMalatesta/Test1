@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1.Interfaces
 {
-    interface IPassengerItem
+    public interface IPassengerItem
     {
         int AllSeatsNumber { get; }
         int OccupiedSeatsNumber { get; }

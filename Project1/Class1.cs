@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Project1
 {
-    public class RailroadItem
+    class Program
     {
-        public int _weightNative { get; private set; }
-
-        public RailroadItem(int weightNative)
+        static void Main(string[] args)
         {
-            _weightNative = weightNative;
         }
     }
 }

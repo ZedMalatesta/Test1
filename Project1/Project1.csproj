@@ -38,16 +38,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoxCar.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Classes\BaggageCar.cs" />
-    <Compile Include="Classes\FreightTrain.cs" />
+    <Compile Include="Classes\BaggageCarSequence.cs" />
+    <Compile Include="FreightTrain.cs" />
     <Compile Include="Classes\PassengerCar.cs" />
+    <Compile Include="Classes\PassengerCarSequence.cs" />
     <Compile Include="Interfaces\IFreightItem.cs" />
     <Compile Include="Interfaces\IPassengerItem.cs" />
     <Compile Include="Classes\Locomotive.cs" />
     <Compile Include="Classes\PassengerTrain.cs" />
     <Compile Include="Classes\QualityType.cs" />
+    <Compile Include="Interfaces\ISeatsSearch.cs" />
     <Compile Include="RailroadCar.cs" />
-    <Compile Include="Classes\RailroadItem.cs" />
+    <Compile Include="Classes\RollingStockItem.cs" />
     <Compile Include="TankCar.cs" />
     <Compile Include="Classes\Train.cs" />
   </ItemGroup>
