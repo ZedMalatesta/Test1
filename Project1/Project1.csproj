@@ -41,10 +41,14 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Classes\BaggageCar.cs" />
     <Compile Include="Classes\BaggageCarSequence.cs" />
+    <Compile Include="Classes\TrainNote.cs" />
+    <Compile Include="Classes\TrainTable.cs" />
     <Compile Include="FreightTrain.cs" />
     <Compile Include="Classes\PassengerCar.cs" />
     <Compile Include="Classes\PassengerCarSequence.cs" />
+    <Compile Include="Interfaces\IExplotationInf.cs" />
     <Compile Include="Interfaces\IFreightItem.cs" />
+    <Compile Include="Interfaces\INameItem.cs" />
     <Compile Include="Interfaces\IPassengerItem.cs" />
     <Compile Include="Classes\Locomotive.cs" />
     <Compile Include="Classes\PassengerTrain.cs" />

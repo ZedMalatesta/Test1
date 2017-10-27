@@ -7,17 +7,19 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class BaggageCar : RollingStockItem, IFreightItem
+    public class BaggageCar : RollingStockItem, IFreightItem, INameItem
     {
+        private double _freightCapacity;
+        private double _freightWeight;
+        private string _name;
+
         public BaggageCar(int weightNativet, string name, double freightCapacity, double freightWeight) 
-            : base(weightNativet, name)
+            : base(weightNativet)
         {
             _freightCapacity = freightCapacity;
             _freightWeight = freightWeight;
+            _name = name;
         }
-
-        private double _freightCapacity { get; set; }
-        private double _freightWeight { get; set;  }
 
         public double FreightCapacity
         {
@@ -35,14 +37,21 @@ namespace Project1.Classes
             }
         }
 
+        string INameItem.Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
         public override double Weight()
         {
             return _weightNativet;
-        }
-
-        public override string Name()
-        {
-            return _name;
         }
     }
 }

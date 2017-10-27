@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1
+
+namespace Project1.Classes
 {
     public abstract class Train : RollingStockItem
-    { 
-         protected Train(int weightNative, string name) 
-            : base(weightNative, name)
+    {
+        protected Locomotive _head;
+
+        public Train(int weightNative, Locomotive head) 
+            : base(weightNative)
         {
+            _head = head;
         }
-        public override string Name()
-        {
-            return _name;
-        }
+
+        public abstract Locomotive Head();
+
     }
 }

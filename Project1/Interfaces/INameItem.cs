@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1
+namespace Project1.Interfaces
 {
-    public enum QualityType
+    interface INameItem
     {
-        Luxury=1, Sleeper, Corridor, Couchette, Open
+        string Name { get; set; }
     }
 }

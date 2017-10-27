@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace Project1.Classes
 {
-    public class Locomotive : RollingStockItem
+    public class Locomotive : RollingStockItem, INameItem
     {
-        public int _powerkW { get; private set; }
+        private int _powerkW { get; set; }
+        private string _name { get; set; }
 
         public Locomotive(int weightNative, string name, int powerkW) 
-            : base(weightNative, name)
+            : base(weightNative)
         {
+            _name = name;
             _powerkW = powerkW;
         }
 
@@ -21,9 +24,16 @@ namespace Project1.Classes
             return _weightNativet;
         }
 
-        public override string Name()
+        public string Name
         {
-            return _name;
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
         }
     }
 }

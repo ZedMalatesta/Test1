@@ -12,8 +12,8 @@ namespace Project1.Classes
     {
         private ICollection<PassengerCar> _passengercars = new List<PassengerCar>(); 
 
-        public PassengerCarSequence(int weightNativet, string name) 
-            : base(weightNativet, name)
+        public PassengerCarSequence(int weightNativet) 
+            : base(weightNativet)
         {
         }
 
@@ -90,7 +90,7 @@ namespace Project1.Classes
             return _passengercars.Sum(x => x.Weight());
         }
 
-        public IEnumerable<PassengerCar> SearchForPassengerNumber(int value)
+        public IEnumerable<IPassengerItem> SearchForPassengerNumber(int value)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Project1.Classes
             }
         }
 
-        public IEnumerable<PassengerCar> SearchForPassengerNumber(int minvalue, int maxvalue)
+        public IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue)
         {
             try
             {
@@ -128,11 +128,6 @@ namespace Project1.Classes
             List<PassengerCar> yan = _passengercars.ToList();
             yan.Sort();
             _passengercars = yan;          
-        }
-
-        public override string Name()
-        {
-            throw new NotImplementedException();
         }
     }
 }

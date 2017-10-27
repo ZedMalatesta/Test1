@@ -8,23 +8,13 @@ namespace Project1
 {
     public abstract class RollingStockItem
     {
-        private int weightNativet;
-
-        protected double _weightNativet { get; private set; }
-        protected string _name { get; private set; }
-
-        public RollingStockItem(int weightNativet, string name)
-        {
-            _weightNativet = weightNativet;
-            _name = name;
-        }
+        protected double _weightNativet;
 
         public RollingStockItem(int weightNativet)
         {
-            this.weightNativet = weightNativet;
+            _weightNativet = weightNativet;
         }
 
         public abstract double Weight();
-        public abstract string Name();
     }
 }

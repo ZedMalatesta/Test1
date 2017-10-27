@@ -13,8 +13,8 @@ namespace Project1.Classes
 
         private ICollection<BaggageCar> _baggagecars = new List<BaggageCar>();
 
-        public BaggageCarSequence(int weightNativet, string name) 
-            : base(weightNativet, name)
+        public BaggageCarSequence(int weightNativet) 
+            : base(weightNativet)
         {
         }
 
@@ -88,11 +88,6 @@ namespace Project1.Classes
         public override double Weight()
         {
             return _baggagecars.Sum(x => x.Weight()+x.FreightWeight); ;
-        }
-
-        public override string Name()
-        {
-            return _name;
         }
     }
 }

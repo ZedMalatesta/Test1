@@ -7,18 +7,18 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class PassengerTrain : Train, IPassengerItem, IFreightItem
+    public class PassengerTrain : Train, ISeatsSearch, IFreightItem, INameItem
     {
-        private Locomotive _head { get; set; }
-        private BaggageCarSequence _baggageCompartment { get; set; }
-        private PassengerCarSequence _passengerCompartment { get; set; }
+        private string _name;
+        private BaggageCarSequence _baggageCompartment;
+        private PassengerCarSequence _passengerCompartment;
 
         public PassengerTrain(int weightNative, string name, Locomotive head, BaggageCarSequence baggageCompartment, PassengerCarSequence passengerCompartment) 
-            : base(weightNative, name)
-        {
-            _head = head;
+            : base(weightNative, head)
+        {           
             _baggageCompartment = baggageCompartment;
             _passengerCompartment = passengerCompartment;
+            _name = name;
         }
 
         public int AllSeatsNumber 
@@ -53,17 +53,24 @@ namespace Project1.Classes
             }
         }
 
+        string INameItem.Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
         public override double Weight()
         {
             return _head.Weight()+_baggageCompartment.Weight()+_passengerCompartment.Weight();
         }
 
-        public override string Name()
-        {
-            return _name;
-        }
-
-        public Locomotive Head()
+        public override Locomotive Head()
         {
             return _head;
         }
@@ -83,12 +90,12 @@ namespace Project1.Classes
             _passengerCompartment.Sort();
         }
 
-        public IEnumerable<PassengerCar> SearchForPassengerNumber(int value)
+        public IEnumerable<IPassengerItem> SearchForPassengerNumber(int value)
         {
             return _passengerCompartment.SearchForPassengerNumber(value);
         }
 
-        public IEnumerable<PassengerCar> SearchForPassengerNumber(int minvalue, int maxvalue)
+        public IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue)
         {
             return _passengerCompartment.SearchForPassengerNumber(minvalue, maxvalue);
         }

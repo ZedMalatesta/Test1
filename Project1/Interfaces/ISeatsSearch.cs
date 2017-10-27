@@ -9,7 +9,7 @@ namespace Project1.Interfaces
 {
     public interface ISeatsSearch : IPassengerItem
     {
-        IEnumerable<PassengerCar> SearchForPassengerNumber(int value);
-        IEnumerable<PassengerCar> SearchForPassengerNumber(int minvalue, int maxvalue);
+        IEnumerable<IPassengerItem> SearchForPassengerNumber(int value);
+        IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue);
     }
 }
