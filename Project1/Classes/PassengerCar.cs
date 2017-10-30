@@ -7,83 +7,80 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class PassengerCar : RollingStockItem, IPassengerItem, IComparable<PassengerCar>, INameItem
+    public class PassengerCar : RollingStockItem, IPassengerItem, IWeightItem
     {
-        private int _allSeatsNumber;
-        private int _occupiedSeatsNumber;
-        private QualityType _quality;
-        private string _name;
-
-        public PassengerCar(int weightNativet, string name, int allSeatsNumber, int occupiedSeatsNumber, QualityType quality)
-            : base(weightNativet)
+        public PassengerCar(double weightNative, string name, int allSeatsNumber, int occupiedSeatsNumber, QualityType quality)
         {
-            _allSeatsNumber = allSeatsNumber;
-            _occupiedSeatsNumber = occupiedSeatsNumber;
-            _quality = quality;
-            _name = name;
+                WeightNative = weightNative;
+                AllSeatsNumber = allSeatsNumber;
+                OccupiedSeatsNumber = occupiedSeatsNumber;
+                Quality = quality;
+                Name = name;
         }
 
         public int AllSeatsNumber
         {
-            get
-            {
-                return _allSeatsNumber;
-            }
-            set
-            {
-                _allSeatsNumber = value;
-            }
+            get;
+            private set;
         }
 
         public int OccupiedSeatsNumber
         {
-            get
-            {
-                return _occupiedSeatsNumber;
-            }
-            set
-            {
-                _allSeatsNumber = value;
-            }
-        }
-
-        public override double Weight()
-        {
-            return _weightNativet;
+            get;
+            set;
         }
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get;
+            private set;
         }
 
         public QualityType Quality
         {
-            get
+            get;
+            private set;
+        }
+
+        public double WeightNative
+        {
+            get;
+            private set;
+        }
+
+        public override double Weight()
+        {
+            return WeightNative;
+        }
+
+        public void ChangeOccupiedSeatsNumber(int value)
+        {
+            if (OccupiedSeatsNumberValidation(value)) OccupiedSeatsNumber = value;
+        }
+
+        public bool OccupiedSeatsNumberValidation(int value)
+        {
+            try
             {
-                return _quality;
+                if (value < 0)
+                {
+                    throw new System.ArgumentException("Parameter cannot be negative");
+                }
+                if (value > AllSeatsNumber)
+                {
+                    throw new System.ArgumentException("Occupied seats number cannot be less than all seats number");
+                }
+                return true;
             }
-            set
+            catch (ArgumentException)
             {
-                _quality = value;
+                return false;
             }
         }
 
-        public int CompareTo(PassengerCar other)
+        public override string ToString()
         {
-            if (this.Quality > other.Quality)
-                return 1;
-            if (this.Quality < other.Quality)
-                return -1;
-            else
-                return 0;
+            return Name + "; seats = " + AllSeatsNumber + "; occupied = " + OccupiedSeatsNumber + " weight = " + WeightNative + "; quality = " + Quality;
         }
     }
 }

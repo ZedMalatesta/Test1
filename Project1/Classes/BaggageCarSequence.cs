@@ -8,14 +8,13 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class BaggageCarSequence : RollingStockItem, ICollection<BaggageCar>, IFreightItem
+    public class BaggageCarSequence : RollingStockItem, ICollection<BaggageCar>, IFreightItem, INotation
     {
-
         private ICollection<BaggageCar> _baggagecars = new List<BaggageCar>();
 
-        public BaggageCarSequence(int weightNativet) 
-            : base(weightNativet)
+        public BaggageCarSequence(ICollection<BaggageCar> baggagecars) 
         {
+            _baggagecars = baggagecars;
         }
 
         public int Count
@@ -88,6 +87,11 @@ namespace Project1.Classes
         public override double Weight()
         {
             return _baggagecars.Sum(x => x.Weight()+x.FreightWeight); ;
+        }
+
+        public IEnumerable<string> Notation()
+        {
+            return _baggagecars.Select(x => x.ToString());
         }
     }
 }

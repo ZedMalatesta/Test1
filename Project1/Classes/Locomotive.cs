@@ -4,36 +4,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project1.Classes
 {
-    public class Locomotive : RollingStockItem, INameItem
+    public class Locomotive : RollingStockItem, IWeightItem
     {
-        private int _powerkW { get; set; }
-        private string _name { get; set; }
+        public int PowerkW { get; private set; }
 
-        public Locomotive(int weightNative, string name, int powerkW) 
-            : base(weightNative)
+        public Locomotive(double weightNative, string name, int powerkW) 
         {
-            _name = name;
-            _powerkW = powerkW;
+            Name = name;
+            PowerkW = powerkW;
+            WeightNative = weightNative;
+
         }
 
         public override double Weight()
         {
-            return _weightNativet;
+            return WeightNative;
         }
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get;
+            private set;
+        }
+
+        public double WeightNative
+        {
+            get;
+            private set;
+        }
+
+        public override string ToString()
+        {
+            return Name + "; weight = " + WeightNative + "; power = " + PowerkW + "kW";
         }
     }
 }

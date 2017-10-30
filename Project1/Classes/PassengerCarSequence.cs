@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project1.Classes
 {
-    public class PassengerCarSequence : RollingStockItem, ICollection<PassengerCar>, ISeatsSearch
+    public class PassengerCarSequence : RollingStockItem, ICollection<PassengerCar>, ISeatsSearchingWithValidation, INotation
     {
-        private ICollection<PassengerCar> _passengercars = new List<PassengerCar>(); 
+        private ICollection<PassengerCar> _passengercars; 
 
-        public PassengerCarSequence(int weightNativet) 
-            : base(weightNativet)
+        public PassengerCarSequence(ICollection<PassengerCar> passangerCar) 
         {
+            _passengercars = passangerCar;
         }
 
         public int Count
@@ -37,7 +38,8 @@ namespace Project1.Classes
         {
             get
             {
-                return _passengercars.Sum(x => x.AllSeatsNumber);
+                return _passengercars
+                    .Sum(x => x.AllSeatsNumber);
             }
         }
 
@@ -45,7 +47,8 @@ namespace Project1.Classes
         {
             get
             {
-                return _passengercars.Sum(x => x.OccupiedSeatsNumber);
+                return _passengercars
+                    .Sum(x => x.OccupiedSeatsNumber);
             }
         }
 
@@ -69,7 +72,6 @@ namespace Project1.Classes
             _passengercars.CopyTo(array, arrayIndex);
         }
 
-
         public bool Remove(PassengerCar item)
         {
             return _passengercars.Remove(item);
@@ -87,47 +89,76 @@ namespace Project1.Classes
 
         public override double Weight()
         {
-            return _passengercars.Sum(x => x.Weight());
+            return _passengercars
+                .Sum(x => x.Weight());
+        }
+
+        public bool SeatsValidation(int value)
+        {
+            try
+            {
+                if (value < 0)
+                {
+                    throw new System.ArgumentException("Parameter cannot be negative");
+                }
+                return true;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+        }
+
+        public bool SeatsValidation(int value1, int value2)
+        {
+            try
+            {
+                if (value1 == value2) {                   
+                    throw new System.ArgumentException("Parameters cannot be equals");
+                }
+                if (value1<0 || value2<0)
+                {
+                    throw new System.ArgumentException("Parameters cannot be negative");
+                }
+                return true;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
         }
 
         public IEnumerable<IPassengerItem> SearchForPassengerNumber(int value)
         {
-            try
+            if (SeatsValidation(value))
             {
-                if (value<0) { throw new System.ArgumentException("Parameter cannot be negative"); }
-                return _passengercars.Where(x => x.OccupiedSeatsNumber== value).Select(x => x);
+                return _passengercars
+                    .Where(x => x.OccupiedSeatsNumber == value)
+                    .Select(x => x);
             }
-            catch (Exception e)
-            {
-                return null;
-            }
+            else return null;
         }
 
         public IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue)
         {
-            try
+            if (SeatsValidation(minvalue, maxvalue))
             {
-                if (maxvalue<0 || minvalue<0) { throw new System.ArgumentException("Parameters cannot be negative"); }
-                if (maxvalue == minvalue) { throw new System.ArgumentException("Parameters cannot be equals"); }
-                if (maxvalue < minvalue)
-                {
-                    int valueH = maxvalue;
-                    maxvalue = minvalue;
-                    minvalue = valueH;
-                }               
-                return _passengercars.Where(x => (x.OccupiedSeatsNumber < maxvalue && x.OccupiedSeatsNumber > minvalue)).Select(x => x);
+                return _passengercars
+                    .Where(x => (x.OccupiedSeatsNumber < maxvalue && x.OccupiedSeatsNumber > minvalue))
+                    .Select(x => x);
             }
-            catch (Exception e)
-            {
-                return null;
-            }
+            else return null;
         }
 
-        public void Sort()
+        public IEnumerable<IPassengerItem> Sort()
         {
-            List<PassengerCar> yan = _passengercars.ToList();
-            yan.Sort();
-            _passengercars = yan;          
+            return _passengercars
+                .OrderBy(x => x.Quality);
+        }
+
+        public IEnumerable<string> Notation()
+        {
+            return _passengercars.Select(x => x.ToString());
         }
     }
 }

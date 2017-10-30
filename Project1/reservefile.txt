@@ -1,0 +1,14 @@
+/*List<BaggageCar> BCS = new List<BaggageCar>();
+            BCS.Add(new BaggageCar(5, "KXZ-0921", 2, 1));
+            BCS.Add(new BaggageCar(5, "KXZ-0922", 2, 1.4));
+            BCS.Add(new BaggageCar(5, "KXZ-0923", 2, 1.7));
+            JsonSerialize.SerializationEmployee(BCS, "Baggage");
+            List<PassengerCar> PCS = new List<PassengerCar>();
+            PCS.Add(new PassengerCar(3, "290J9123", 84, 25, QualityType.Open));
+            PCS.Add(new PassengerCar(3, "290J9145", 54, 27, QualityType.Sleeper));
+            PCS.Add(new PassengerCar(4, "290J9148", 20, 12, QualityType.Luxury));
+            PCS.Add(new PassengerCar(3, "290J9187", 70, 30, QualityType.Corridor));
+            PCS.Add(new PassengerCar(3, "290V9012", 54, 41, QualityType.Couchette));
+            JsonSerialize.SerializationEmployee(PCS, "Passenger");
+            Locomotive Loco = new Locomotive(6, "рв20", 1200);
+            JsonSerialize.SerializationEmployeeOne(Loco, "Locomotive");*/

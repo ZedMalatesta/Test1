@@ -13,37 +13,46 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            BaggageCarSequence BCS = new BaggageCarSequence(0);
-            BCS.Add(new BaggageCar(5, "KX-21", 2, 1));
-            BCS.Add(new BaggageCar(5, "KX-22", 2, 1.4));
-            BCS.Add(new BaggageCar(5, "KX-23", 2, 1.7));
-            PassengerCarSequence PCS = new PassengerCarSequence(0);
-            PCS.Add(new PassengerCar(3, "UO-12", 54, 25, QualityType.Standart));
-            PCS.Add(new PassengerCar(3, "UO-13", 54, 27, QualityType.Econom));
-            PCS.Add(new PassengerCar(3, "UO-16", 54, 12, QualityType.Luxury));
-            PCS.Add(new PassengerCar(3, "UO-18", 54, 30, QualityType.Standart));
-            Locomotive Loco = new Locomotive(6, "PPH", 1200);
-            PassengerTrain PT = new PassengerTrain(0, "Illya Muromets", Loco, BCS, PCS);
-            Console.WriteLine(PT.Weight());
-            Console.WriteLine(PT.AllSeatsNumber);
-            Console.WriteLine(PT.OccupiedSeatsNumber);
-            Console.WriteLine(PT.FreightCapacity);
-            Console.WriteLine(PT.FreightWeight);
-            PT.Sort();
-            foreach (PassengerCar obj in PT.PC())
+            //Инициализируем параметры класса PassengerTrain
+            BaggageCarSequence bcs = new BaggageCarSequence((JsonSerialize.DeserializationBaggageCar()).ToList());
+            PassengerCarSequence pcs = new PassengerCarSequence((JsonSerialize.DeserializationPassengerCar()).ToList());
+            Locomotive Loco = JsonSerialize.DeserializationLocomotive();
+
+            //Создаем объект типа PassengerTrain
+            PassengerTrain PT = new PassengerTrain("ТЭГК95", Loco, bcs, pcs);
+
+            //Выводим информацию об объектах поезда на консоль
+            foreach (string obj in PT.Notation())
             {
-                Console.WriteLine(obj.Name);
+                Console.WriteLine(obj);
             }
+            Console.WriteLine("___________________________________________________");
+
+            Console.WriteLine("Суммарны вес поезда = " + PT.Weight());
+            Console.WriteLine("Количество багажа = " + PT.FreightWeight);
+            Console.WriteLine("Количество пасажиров = " + PT.OccupiedSeatsNumber);
+
+            //Проводим сортировку и снова выводим информацию об объектах поезда на консоль
+            IEnumerable<IPassengerItem> OP = PT.Sort();
+            foreach (IPassengerItem obj in OP)
+            {
+                Console.WriteLine(obj.ToString());
+            }
+
+            //Выполняем поиск вагонов по заданным максималным и минимальным значениям
             IEnumerable<IPassengerItem> cars = PT.SearchForPassengerNumber(27);
-            foreach (PassengerCar obj in cars)
+            Console.WriteLine("Вагоны подходящие под заданное значение = ");
+            foreach (IPassengerItem obj in cars)
             {
-                Console.WriteLine(obj.Name);
+                Console.WriteLine(obj.ToString());
             }
+            Console.WriteLine("Вагоны подходящие под заданный диапазон = ");
             IEnumerable<IPassengerItem> cars2 = PT.SearchForPassengerNumber(20, 28);
-            foreach (PassengerCar obj in cars2)
+            foreach (IPassengerItem obj in cars2)
             {
-                Console.WriteLine(obj.Name);
+                Console.WriteLine(obj.ToString());
             }
+            
             Console.ReadLine();
         }
     }

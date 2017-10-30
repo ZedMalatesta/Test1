@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project1.Interfaces
 {
-    public interface IExplotationInf
+    public interface ISeatsSearchingWithValidation : ISeatsSearching 
     {
-        DateTime StartOfExplotation { get;}
-        int YearsInExplotation { get; }
+        bool SeatsValidation(int value);
+        bool SeatsValidation(int value1, int value2);
     }
 }

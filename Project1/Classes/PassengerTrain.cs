@@ -7,18 +7,17 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class PassengerTrain : Train, ISeatsSearch, IFreightItem, INameItem
+    public class PassengerTrain : Train, ISeatsSearching, IFreightItem, INameItem, INotation
     {
-        private string _name;
         private BaggageCarSequence _baggageCompartment;
         private PassengerCarSequence _passengerCompartment;
 
-        public PassengerTrain(int weightNative, string name, Locomotive head, BaggageCarSequence baggageCompartment, PassengerCarSequence passengerCompartment) 
-            : base(weightNative, head)
-        {           
+        public PassengerTrain(string name, Locomotive head, BaggageCarSequence baggageCompartment, PassengerCarSequence passengerCompartment) 
+            : base(head)
+        {
             _baggageCompartment = baggageCompartment;
             _passengerCompartment = passengerCompartment;
-            _name = name;
+            Name = name;
         }
 
         public int AllSeatsNumber 
@@ -53,16 +52,10 @@ namespace Project1.Classes
             }
         }
 
-        string INameItem.Name
+        public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get;
+            private set;
         }
 
         public override double Weight()
@@ -85,9 +78,25 @@ namespace Project1.Classes
             return _passengerCompartment;
         }
 
-        public void Sort()
+        public IEnumerable<IPassengerItem> Sort()
         {
-            _passengerCompartment.Sort();
+            return _passengerCompartment.Sort();
+        }
+
+        public override double TractionForce()
+        {
+            return (735.5*_head.PowerkW/(100/5));        
+        }
+
+        public override void ChangeHead(Locomotive value)         
+        {
+            _head=value;
+        }
+
+        public override bool TractionForceTest()
+        {
+             if (((TractionForce()-(1.88 + 9.5)*130)/(1.88 + 9.5))>(Weight()+100)) return true;
+             else return false;
         }
 
         public IEnumerable<IPassengerItem> SearchForPassengerNumber(int value)
@@ -98,6 +107,16 @@ namespace Project1.Classes
         public IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue)
         {
             return _passengerCompartment.SearchForPassengerNumber(minvalue, maxvalue);
+        }
+
+        public IEnumerable<string> Notation()
+        {
+            return _passengerCompartment.Notation().Concat(_baggageCompartment.Notation()).Concat(new string[] { _head.ToString() });
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

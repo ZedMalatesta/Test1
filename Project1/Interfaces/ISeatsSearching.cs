@@ -7,7 +7,7 @@ using Project1.Classes;
 
 namespace Project1.Interfaces
 {
-    public interface ISeatsSearch : IPassengerItem
+    public interface ISeatsSearching : IPassengerItem
     {
         IEnumerable<IPassengerItem> SearchForPassengerNumber(int value);
         IEnumerable<IPassengerItem> SearchForPassengerNumber(int minvalue, int maxvalue);

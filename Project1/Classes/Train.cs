@@ -12,13 +12,14 @@ namespace Project1.Classes
     {
         protected Locomotive _head;
 
-        public Train(int weightNative, Locomotive head) 
-            : base(weightNative)
+        public Train (Locomotive head) 
         {
             _head = head;
         }
 
         public abstract Locomotive Head();
-
+        public abstract void ChangeHead(Locomotive value);
+        public abstract double TractionForce();
+        public abstract bool TractionForceTest();
     }
 }

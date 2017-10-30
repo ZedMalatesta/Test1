@@ -1,92 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Project1.Classes.PassengerTrain" Collapsed="true">
-    <Position X="1.25" Y="3.25" Width="1.5" />
+  <Class Name="Project1.Classes.PassengerTrain">
+    <Position X="1.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQIIAABAAAAIIAIAAAUCAAAACAAAAAAAACAAAgAAAA=</HashCode>
+      <HashCode>IkAIAAABAAAAIIAMAIgUCAQAACAAAAAAAACAAAgAAAA=</HashCode>
       <FileName>Classes\PassengerTrain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.Classes.BaggageCar" Collapsed="true">
-    <Position X="3.5" Y="1.75" Width="1.5" />
+    <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAIAAAAAAAAAAAAAACCAAAACAAAAAAAAAAAAgCAAA=</HashCode>
+      <HashCode>AAAAAAAgAAAAAAAEAAAACIQAACQAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Classes\BaggageCar.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.Classes.BaggageCarSequence" Collapsed="true">
-    <Position X="5.75" Y="1.75" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAABAQAAAADAQABCAAAAAEAAAAAAhQIAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAABAQAAgADAQABCAAAAAEAAAAAAhQIAA=</HashCode>
       <FileName>Classes\BaggageCarSequence.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.Classes.Locomotive" Collapsed="true">
-    <Position X="12.5" Y="1.75" Width="1.5" />
+    <Position X="13" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQCACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAgAAAAAAAEAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Locomotive.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.Classes.PassengerCar" Collapsed="true">
-    <Position X="10.25" Y="1.75" Width="1.5" />
+    <Position X="10.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIIAAAAABAAARAAAAEAEQQACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAgAAAAAAhEAAAEAARAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\PassengerCar.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.Classes.PassengerCarSequence" Collapsed="true">
-    <Position X="8" Y="1.75" Width="1.5" />
+    <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAIIAAAAAAAAABAQAAAUFAQAACAAAAAEAAAAAABQIAA=</HashCode>
+      <HashCode>IAIIAAAAAAAAABAQAAgUFAQAACAAAAAEAAAAIABQIAA=</HashCode>
       <FileName>Classes\PassengerCarSequence.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Project1.RollingStockItem" Collapsed="true">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\RollingStockItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1.Classes.Train" Collapsed="true">
-    <Position X="1.25" Y="1.75" Width="1.5" />
+    <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AkAAAAAAAAAAAIAAAIAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Classes\Train.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Project1.Classes.TrainNote" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAEAAAAAACAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\TrainNote.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
   <Interface Name="Project1.Interfaces.IPassengerItem" Collapsed="true">
-    <Position X="3.75" Y="3.5" Width="1.5" />
+    <Position X="4.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IPassengerItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Project1.Interfaces.IFreightItem" Collapsed="true">
-    <Position X="15" Y="0.5" Width="1.5" />
+    <Position X="17.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Interfaces\IFreightItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Project1.Interfaces.ISeatsSearch" Collapsed="true">
-    <Position X="3.75" Y="4.75" Width="1.5" />
+  <Interface Name="Project1.Interfaces.ISeatsSearching" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\ISeatsSearch.cs</FileName>
+      <FileName>Interfaces\ISeatsSearching.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project1.Interfaces.IExplotationInf" Collapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IExplotationInf.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project1.Interfaces.INameItem" Collapsed="true">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\INameItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project1.Interfaces.ISeatsSearchingWithValidation" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Interfaces\ISeatsSearchingWithValidation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project1.Interfaces.IWeightItem" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IWeightItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Project1.QualityType" Collapsed="true">
-    <Position X="15" Y="1.5" Width="1.5" />
+    <Position X="15.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAACAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAgAAAAEQAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Classes\QualityType.cs</FileName>
     </TypeIdentifier>
   </Enum>

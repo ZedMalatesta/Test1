@@ -37,31 +37,31 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoxCar.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Classes\BaggageCar.cs" />
     <Compile Include="Classes\BaggageCarSequence.cs" />
     <Compile Include="Classes\TrainNote.cs" />
-    <Compile Include="Classes\TrainTable.cs" />
-    <Compile Include="FreightTrain.cs" />
     <Compile Include="Classes\PassengerCar.cs" />
     <Compile Include="Classes\PassengerCarSequence.cs" />
     <Compile Include="Interfaces\IExplotationInf.cs" />
     <Compile Include="Interfaces\IFreightItem.cs" />
+    <Compile Include="Interfaces\INotation.cs" />
+    <Compile Include="Interfaces\ISeatsSearchingWithValidation.cs" />
     <Compile Include="Interfaces\INameItem.cs" />
     <Compile Include="Interfaces\IPassengerItem.cs" />
     <Compile Include="Classes\Locomotive.cs" />
     <Compile Include="Classes\PassengerTrain.cs" />
     <Compile Include="Classes\QualityType.cs" />
-    <Compile Include="Interfaces\ISeatsSearch.cs" />
-    <Compile Include="RailroadCar.cs" />
+    <Compile Include="Interfaces\ISeatsSearching.cs" />
     <Compile Include="Classes\RollingStockItem.cs" />
-    <Compile Include="TankCar.cs" />
     <Compile Include="Classes\Train.cs" />
+    <Compile Include="Interfaces\IWeightItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

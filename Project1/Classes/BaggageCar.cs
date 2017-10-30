@@ -7,51 +7,75 @@ using Project1.Interfaces;
 
 namespace Project1.Classes
 {
-    public class BaggageCar : RollingStockItem, IFreightItem, INameItem
+    public class BaggageCar : RollingStockItem, IWeightItem, IFreightItem
     {
-        private double _freightCapacity;
-        private double _freightWeight;
-        private string _name;
 
-        public BaggageCar(int weightNativet, string name, double freightCapacity, double freightWeight) 
-            : base(weightNativet)
+        public BaggageCar(double weightNative, string name, double freightCapacity, double freightWeight) 
         {
-            _freightCapacity = freightCapacity;
-            _freightWeight = freightWeight;
-            _name = name;
+            FreightCapacity = freightCapacity;
+            FreightWeight = freightWeight;
+            Name = name;
+            WeightNative = weightNative;
         }
 
         public double FreightCapacity
         {
-            get
-            {
-                return _freightCapacity;
-            }
+            get;
+            private set;
         }
 
         public double FreightWeight
         {
-            get
-            {
-                return _freightWeight;
-            }
+            get;
+            private set;
         }
 
-        string INameItem.Name
+        public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get;
+            private set;
+        }
+
+        public double WeightNative
+        {
+            get;
+            private set;
         }
 
         public override double Weight()
         {
-            return _weightNativet;
+            return WeightNative;
         }
+
+        public void ChangeFreightWeight(double value)
+        {
+            if (FreightWeightValidation(value)) FreightWeight = value;
+        }
+
+        public bool FreightWeightValidation(double value)
+        {
+            try
+            {
+                if (value < 0)
+                {
+                    throw new System.ArgumentException("Parameter cannot be negative");
+                }
+                if (value > FreightCapacity)
+                {
+                    throw new System.ArgumentException("Freight weight cannot be less than r");
+                }
+                return true;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+        }
+
+        public override string ToString()
+        {
+            return Name + "; native weight = " + WeightNative + "; capacity = " + FreightCapacity + "; freight weight = " + FreightWeight;
+        }
+
     }
 }

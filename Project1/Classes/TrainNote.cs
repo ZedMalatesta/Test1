@@ -7,39 +7,36 @@ using System.Threading.Tasks;
 
 namespace Project1.Classes
 {
-    class TrainNote : IExplotationInf
+    public class TrainNote : IExplotationInf
     {
-        private DateTime _startOfExplotation;
-        private int _yearsInExplotation;
-        private Train _train;
+        public TrainNote(DateTime startOfExplotation, int yearsInExplotation, Train train) 
+        {
+            StartOfExplotation = startOfExplotation;
+            YearsInExplotation = yearsInExplotation;
+            TrainOb = train;
+        }
 
         public DateTime StartOfExplotation
         {
-            get
-            {
-                return _startOfExplotation;
-            }
+            get;
+            private set;
         }
 
         public int YearsInExplotation
         {
-            get
-            {
-                return _yearsInExplotation;
-            }
+            get;
+            private set;
         }
 
-        public Train train
+        public Train TrainOb
         {
-            get
-            {
-                return _train;
-            }
+            get;
+            private set;
         }
 
         public override string ToString()
         {
-            return _startOfExplotation.ToString() + " " + _yearsInExplotation.ToString() + " " + _train.ToString();
+            return StartOfExplotation.ToString() + " " + YearsInExplotation.ToString() + " " + TrainOb.ToString();
         }
     }
 }

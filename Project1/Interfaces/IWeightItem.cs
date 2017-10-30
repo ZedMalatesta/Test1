@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1
+namespace Project1.Interfaces
 {
-    class TankCar
+    interface IWeightItem : INameItem
     {
+        double WeightNative { get; }
     }
 }

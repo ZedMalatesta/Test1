@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project1.Interfaces
 {
-    interface INameItem
+    public interface INameItem
     {
-        string Name { get; set; }
+        string Name { get; }
     }
 }
